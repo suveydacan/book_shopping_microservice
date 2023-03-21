@@ -31,7 +31,8 @@ Veri tabanı yönetim sistemi olarak MySQL tercih edilmiştir.
  -Arama yapma  
  -Secim yapma ve siparis olusturma  
  -Odeme ve kargo bilgileri  
- -Yonetici paneli
+ -Yonetici paneli  
+ -UI
 
 ## Gelistirenler
 
