@@ -1,13 +1,15 @@
-from django.db import models
 
-# Create your models here.
+from django.contrib import admin
+from .models import Payment
+# Register your models here.
 
-class Payment(models.Model):
-    payment_method = models.CharField(max_length=30)
-   # payment_total =models.CharField(max_length=30)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display=('payment_method',)
+    list_display_links=('payment_method'),
+    
 
 
 
+admin.site.register(Payment,PaymentAdmin)
 
-    def _str_(self):
-        return self.payment_method
+# Register your models here.
