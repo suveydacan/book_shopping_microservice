@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -63,6 +64,7 @@ TEMPLATES = [
              BASE_DIR / "templates"
 
         ],
+        
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
