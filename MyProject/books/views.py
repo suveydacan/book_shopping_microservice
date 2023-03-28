@@ -9,7 +9,7 @@ def product_pages(request):
         'books': books
     }
 
-    return render(request, 'books/product.html', context)
+    return render(request ,"books/product.html", context)
 
 
    
