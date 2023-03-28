@@ -19,7 +19,7 @@ class Book(models.Model):
         return self.book_name
     
     def get_image_path(self):
-        return '/img/'+ self.image  #img ile resim uzantısını birleştirir.
+        return '/books/img/'+ self.image  #img ile resim uzantısını birleştirir.
 
     
     
