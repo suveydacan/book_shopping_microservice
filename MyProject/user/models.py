@@ -26,6 +26,9 @@ class MyAddress(models.Model):
      county=models.CharField(max_length=30)
      neighborhood=models.CharField(max_length=30)
      street=models.CharField(max_length=30)
+     binaNo=models.CharField(default='0',max_length=10)
+     flights_up=models.CharField(default='0',max_length=10)
+     apartmentNo=models.CharField(default='0',max_length=10)
      postcode=models.IntegerField()
      addressDetail=models.TextField(max_length=60)
 

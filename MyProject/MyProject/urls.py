@@ -23,4 +23,5 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')), #link sonuna/account diyince gelecek
+    path('books/',include('books.urls')),
 ] 

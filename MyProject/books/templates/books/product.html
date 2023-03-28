@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!-- {% block css_files %}
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock %}  -->
+
+{% block title%} Product {% endblock %} 
+
+{% block content %} 
+
+<div class="row">
+    <div class="col-md-12">
+
+        {% if books %}
+            {% for book in books %}
+                <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="card-img" src="{% static book.get_image_path %}" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <div class="card-title"> {{book.name}} </div>
+                            <p class="card-text">
+                               {{book.author}}
+                               {{book.publisher}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            {% endfor %}
+
+        {% else %}
+           <div class="aler alert-warning">
+            <p>
+                No books
+            </p>
+           </div>
+
+        {% endif %}
+            
+
+    </div>
+</div>
+
+{% endblock %} 
+
+<!-- {% block js_files %} 
+    <script src="{% static 'account/script.js' %}"></script>
+{% endblock %}  -->
