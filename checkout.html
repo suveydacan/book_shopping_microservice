@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="checkout.css">
+  <link rel="stylesheet" type="text/css" href="shopping-cart.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!------------- Header section ------------------->
+  <section id="nav-bar">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <a class="navbar-brand" href="index.html">Thot'<span>Archive</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">ANASAYFA</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">ÜRÜNLER</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profile.html">Hesabım</a>
+
+          <li class="nav-item">
+            <img src="images/shopping-cart.png">
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+  <!------------- Checkout section ------------------->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 order-md-2 mb-4 common-form">
+          <div class="total-bill">
+            <p class="summary-title">Tutar</p>
+            <p class="d-flex">Sipariş<span class="ml-auto font-weight-bold">189.05 TL</span></p>
+            <p class="d-flex">Kargo<span class="ml-auto font-weight-bold">12.09 TL</span></p>
+          </div>
+          <div>
+            <p class="d-flex">Toplam: <span class="ml-auto font-weight-bolder">201,14 TL</span></p>
+          </div>
+          <button type="button" class="btn btn-dark btn-block">Siparişi tamamla</button>
+        </div>
+
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Sipariş Adresi</h4>
+          <form class="needs-validation" novalidate="">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Ad</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Lütfen geçerli bir ad giriniz.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Soyad</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Lütfen geçerli bir soyad giriniz.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email">E-posta </label>
+              <input type="email" class="form-control" id="email" placeholder="kullaniciadi@ornek.com">
+              <div class="invalid-feedback">
+                Lütfen bir e-posta adresi giriniz.
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="quarter">Mahalle/Semt</label>
+                <input type="text" class="form-control" id="quarter" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Mahalle adı gerekli.
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="street">Cadde/Sokak</label>
+                <input type="text" class="form-control" id="street" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Lütfen teslimat adresinine ait cadde veya sokak bilgisi giriniz.
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="residence">Bina NO:</label>
+                <input type="text" class="form-control" id="residence" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Lütfen teslimat adresinine ait bina numarası bilgisi giriniz.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="floor">Kat:</label>
+                <input type="text" class="form-control" id="floor" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Lütfen teslimat adresinine ait kat bilgisi giriniz.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="apartment">Daire:</label>
+                <input type="text" class="form-control" id="apartment" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Lütfen teslimat adresinine ait daire bilgisi giriniz.
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="city">Şehir</label>
+                <select class="custom-select d-block w-100" id="city" required="">
+                  <option value="">Seçiniz</option>
+                  <option>Trabzon</option>
+                  <option>Ankara</option>
+                </select>
+                <div class="invalid-feedback">
+                  Lütfen geçerli bir şehir seçiniz.
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="county">İlçe</label>
+                <select class="custom-select d-block w-100" id="county" required="">
+                  <option value="">Seçiniz</option>
+                  <option>Ortahisar</option>
+                  <option>Yomra</option>
+                  <option>Yenimahalle</option>
+                </select>
+                <div class="invalid-feedback">
+                  Lütfen geçerli bir ilçe seçiniz.
+                </div>
+              </div>
+
+            </div>
+
+
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="same-address">
+              <label class="custom-control-label" for="same-address"> Faturam bu adrese gelsin
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="save-info">
+              <label class="custom-control-label" for="save-info"> Diğer siparişler için kaydet</label>
+            </div>
+            <hr class="mb-4">
+
+            <h4 class="mb-3">Ödeme</h4>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
+                  required="">
+                <label class="custom-control-label" for="credit">Kredi Kartı</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                <label class="custom-control-label" for="debit">Kapıda Ödeme</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cc-name">Kartın üzerindeki isim</label>
+                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                <small class="text-muted">Kartın üzerindeki ad-soyad</small>
+                <div class="invalid-feedback">
+                  Name on card is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="cc-number">Kartın Numarası:</label>
+                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Credit card number is required
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 mb-3">
+                <label for="cc-expiration">Son Kullanma Tarihi:</label>
+                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Expiration date required
+                </div>
+              </div>
+              <div class="col-md-3 mb-3">
+                <label for="cc-cvv">CVC:</label>
+                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                <div class="invalid-feedback">
+                  Security code required
+                </div>
+              </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Siparişi tamamla</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!------------- Footer section ------------------->
+  <section id="footer">
+    <div class="container-fluid container-spacing text-center">
+      <p>2023 MicroPY © Tüm hakları saklıdır.</p>
+    </div>
+  </section>
+</body>
+
+</html>

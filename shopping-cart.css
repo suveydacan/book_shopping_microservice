@@ -1,0 +1,49 @@
+/* --- Shopping cart section --- */
+.shopping-cart-title
+{
+  font-size: 40px !important;
+  margin: 40px 0;
+  color: #343a40 !important;
+  font-family: 'Roboto Slab', serif;
+}
+.common-form
+{
+	box-shadow: 2px -2px 10px #ced4da;
+	border-radius: 15px;
+	border: 1px solid #ced4da;
+	margin-top: 20px;
+	padding: 20px;
+}
+.small-image
+{
+	width: 15%;
+	height: 15%;
+	margin-right: 20px;
+}
+.book-info-detail
+{
+	margin-bottom: 2px;
+	font-size: 16px;
+	color: gray;
+}
+.book-name
+{
+	margin-bottom: 2px;
+}
+.price
+{
+	margin-right: 16px;
+}
+.total-bill
+{	
+	border-bottom: 1px solid #ced4da;
+	margin-bottom: 30px;
+}
+.summary-title
+{
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-style: italic;
+	color: gray;
+	font-weight: 700;
+}
