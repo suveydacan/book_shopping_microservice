@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+{% endblock %} 
+
+
+{% block title%} Register {% endblock %} 
+
+{% block content %} 
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <h1>Register</h1>
+            <hr>
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                
+                    <div class="alert alert-danger">
+                        {{error}}
+    
+                    </div>
+    
+                {% endif %}
+                <div class="mb-3">
+    
+                    <label for="username" class="form_label">Username</label>
+                    <input type="text" class="form-control" name="username">
+    
+                </div>
+    
+
+
+                <div class="mb-3">
+    
+                    <label for="email" class="form_label">Email</label>
+                    <input type="email" class="form-control" name="email">
+    
+                </div>
+
+                <div class="mb-3">
+    
+                    <label for="firstname" class="form_label">Firstname</label>
+                    <input type="text" class="form-control" name="firstname">
+    
+                </div>
+
+                <div class="mb-3">
+    
+                    <label for="lastname" class="form_label">Lastname</label>
+                    <input type="text" class="form-control" name="lastname">
+    
+                </div>
+
+                <div class="mb-3">
+    
+                    <label for="password" class="form_label">password</label>
+                    <input type="password" class="form-control" name="password">
+    
+                </div>
+
+                <div class="mb-3">
+    
+                    <label for="repassword" class="form_label">Re-password</label>
+                    <input type="password" class="form-control" name="repassword">
+    
+                </div>
+    
+                <input type="submit" value="Register" class="btn btn-primary">
+            </form>
+    </div>
+</div>
+
+{% endblock %} 
+
+{% block js_files %} 
+    <script src="{% static 'account/js/script.js' %}"></script>
+{% endblock %} 

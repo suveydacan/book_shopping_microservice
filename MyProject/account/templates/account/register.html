@@ -1,21 +1,62 @@
-{% extends "base.html" %}
 {% load static %}
+<!DOCTYPE html>
+<html>
 
-{% block css_files %}
-    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
-{% endblock %} 
+<head>
+    <title></title>
 
+    {% block css_files %}
 
-{% block title%} Register {% endblock %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'account/css/login.css' %}">
 
-{% block content %} 
+    {% endblock %} 
 
-<div class="container mt-3">
-    <div class="row">
-        <div class="col">
-            <h1>Register</h1>
-            <hr>
-            <form action="{% url 'register' %}" method="POST">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!------------- Header section ------------------->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#">Coders.<span>Tokyo</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/shopping-cart.png">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <!------------- Login section ------------------->
+    {% block content %} 
+
+    <section>
+        <div class="container">
+            <p class="login">Kayıt Ol</p>
+            <form class="needs-validation" novalidate="" action="{% url 'register' %}" method="POST">
                 {% csrf_token %}
                 {% if error %}
                 
@@ -25,57 +66,115 @@
                     </div>
     
                 {% endif %}
-                <div class="mb-3">
-    
-                    <label for="username" class="form_label">Username</label>
-                    <input type="text" class="form-control" name="username">
-    
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="username">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" id="username " placeholder="" value="{{username}}" required="" name="username">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir ad giriniz.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="firstName">Ad</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="" value="{{first_name}}" required="" name="first_name">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir ad giriniz.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="lastName">Soyad</label>
+                        <input type="text" class="form-control" id="last_name" placeholder="" value="{{last_name}}" required="" name="last_name">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir soyad giriniz.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="email">E-posta </label>
+                        <input type="email" class="form-control" id="email" placeholder="kullaniciadi@ornek.com" name="email" value="{{email}}">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir e-posta adresi giriniz.
+                        </div>
+                    </div>
                 </div>
-    
+                <!-- <hr class="mb-4">
+                <div class="row">
+                    
+                     <div class="col-md-6 mb-3">
+                        <label for="email2">E-posta tekrar</label>
+                        <input type="email" class="form-control" id="email2" placeholder="kullaniciadi@ornek.com">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir e-posta adresi giriniz.
+                        </div>
+                    </div> 
+                </div> -->
+                <!-- <hr class="mb-4">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="acode">Alan Kodu</label>
+                        <input type="text" class="form-control" id="acode" placeholder="örn. 539" required="">
+                        <div class="invalid-feedback">
+                            Alan kodu gerekli.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="telno">Telefon Numarası</label>
+                        <input type="text" class="form-control" id="telno" placeholder="örn. 5876965" required="">
+                        <div class="invalid-feedback">
+                            Telefon numarası gerekli.
+                        </div>
+                    </div>
+                </div> -->
+                <hr class="mb-4">
 
-
-                <div class="mb-3">
-    
-                    <label for="email" class="form_label">Email</label>
-                    <input type="email" class="form-control" name="email">
-    
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="password">Şifre</label>
+                        <input type="text" class="form-control" id="pwd" placeholder="" required="" name="password">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir şifre belirleyiniz.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="repassword">Şifre Tekrar</label>
+                        <input type="text" class="form-control" id="pwd2" placeholder="" required="" name="repassword">
+                        <div class="invalid-feedback">
+                            Lütfen geçerli bir şifre belirleyiniz.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-    
-                    <label for="firstname" class="form_label">Firstname</label>
-                    <input type="text" class="form-control" name="firstname">
-    
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="same-address">
+                    <label class="custom-control-label" for="same-address"> Aydınlatma metnini okudum, anladım.
+                    </label>
                 </div>
+                <hr class="mb-4">
 
-                <div class="mb-3">
-    
-                    <label for="lastname" class="form_label">Lastname</label>
-                    <input type="text" class="form-control" name="lastname">
-    
-                </div>
-
-                <div class="mb-3">
-    
-                    <label for="password" class="form_label">password</label>
-                    <input type="password" class="form-control" name="password">
-    
-                </div>
-
-                <div class="mb-3">
-    
-                    <label for="repassword" class="form_label">Re-password</label>
-                    <input type="password" class="form-control" name="repassword">
-    
-                </div>
-    
-                <input type="submit" value="Register" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary">Kayıt Ol</button>
             </form>
-    </div>
-</div>
+        </div>
 
-{% endblock %} 
+        <!-- <div class="form-group form-check">
+		    <label class="form-check-label">
+		      <input class="form-check-input" type="checkbox"> Beni Hatırla
+		    </label>
+		  </div> -->
 
-{% block js_files %} 
-    <script src="{% static 'account/js/script.js' %}"></script>
-{% endblock %} 
+        
+        
+        
+    </section>
+    {% endblock %} 
+
+
+    <!------------- Footer section ------------------->
+    <section id="footer">
+        <div class="container-fluid container-spacing text-center">
+            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
+            <p>Term of Service | Privacy</p>
+        </div>
+    </section>
+</body>
+
+</html>

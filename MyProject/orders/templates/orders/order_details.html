@@ -1,0 +1,118 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+    {% block css_files %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'orders/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'orders/css/shopping-cart.css' %}">
+
+    {% endblock %}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!------------- Header section ------------------->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="{% url 'index' %}">Coders.<span>Tokyo</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/shopping-cart.png">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <!------------- Shopping cart section ------------>
+    <section id="shopping-cart">
+        <div class="container">
+            <h1 class="text-center shopping-cart-title">Sipariş Detayları</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex common-form">
+
+                        <div class="book-info">
+                            <p class="font-weight-bold book-name" style="font-size: 18px;"> Sipariş Bilgileri<span
+                                    class="book-info-detail"></span></p>
+                            <hr class="mb-4">
+                            <p class="book-info-detail">Sipariş No: </p>
+                            <p class="book-info-detail">Ödeme Yöntemi: </p>
+                            <p class="book-info-detail">Kargo Şirketi: </p>
+                            <p class="book-info-detail">Sipariş Durumu: </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6 common-form">
+                    <div class="total-bill">
+                        <p class="summary-title">TUTAR</p>
+                        <p class="d-flex">Ürün Tutarı<span class="ml-auto font-weight-bold">$668</span></p>
+                        <p class="d-flex">Kargo Ücreti<span class="ml-auto font-weight-bold">$12.5</span></p>
+                    </div>
+                    <div>
+                        <p class="d-flex">Toplam Tutar<span class="ml-auto font-weight-bolder">$12.5</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex common-form">
+                        <h4 class="mb-3" style="text-align: center;"> Satın Alınan Ürünler</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex common-form">
+                        <div class="book-info">
+                            <p class="font-weight-bold book-name" style="font-size: 18px;"> Kitap Adı <span
+                                    class="book-info-detail"></span></p>
+                            <hr class="mb-4">
+                            <p class="book-info-detail">Tür: </p>
+                            <p class="book-info-detail">Yazar: </p>
+                            <p class="book-info-detail">Fiyat: </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------- Footer section ------------------->
+    <section id="footer">
+        <div class="container-fluid container-spacing text-center">
+            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
+            <p>Term of Service | Privacy</p>
+        </div>
+    </section>
+</body>
+
+</html>

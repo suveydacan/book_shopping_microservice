@@ -1,11 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
   <title></title>
-  <link rel="stylesheet" type="text/css" href="index.css">
-  <link rel="stylesheet" type="text/css" href="checkout.css">
-  <link rel="stylesheet" type="text/css" href="shopping-cart.css">
+  {% block css_files %}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'orders/css/index.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'orders/css/checkout.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'orders/css/shopping-cart.css' %}">
+
+  {% endblock %}
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -18,7 +25,7 @@
   <!------------- Header section ------------------->
   <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light ">
-      <a class="navbar-brand" href="index.html">Thot'<span>Archive</span></a>
+      <a class="navbar-brand" href="{% url 'index' %}">Thot'<span>Archive</span></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars"></i>
@@ -26,13 +33,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">ANASAYFA</a>
+            <a class="nav-link" href="{% url 'index' %}">ANASAYFA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="product.html">ÜRÜNLER</a>
+            <a class="nav-link" href="{% url 'product' %}">ÜRÜNLER</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.html">Hesabım</a>
+            <a class="nav-link" href="#">Hesabım</a>
 
           <li class="nav-item">
             <img src="images/shopping-cart.png">

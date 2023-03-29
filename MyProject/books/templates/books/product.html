@@ -1,55 +1,119 @@
-{% extends "base.html" %}
 {% load static %}
 
+<!DOCTYPE html>
 
-{% block css_files %}
-    <link rel="stylesheet" href="{% static 'books/css/style.css' %}">
-{% endblock %} 
+<html>
 
-{% block title%} Product {% endblock %} 
+<head>
+    <title></title>
 
-{% block content %} 
+    {% block css_files %}
 
-<div class="row">
-    <div class="col-md-12">
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'books/css/product.css' %}">
 
-        {% if books %}
-            {% for book in books %}
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img class="card-img" src="{% static book.get_image_path %}" alt="">
-                        </div>
-                        <div class="col-md-9">
-                            <div class="card-body">
-                                <div class="card-title"> {{book.name}} </div>
-                                <p class="card-text">
-                                {{book.author}}
-                                <br>
-                                <br>
-                                {{book.publisher}}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    {% endblock %} 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!------------- Header section ------------------->
+    	 <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#">Coders.<span>Tokyo</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="images/shopping-cart.png">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <!------------- Search section ------------------->
+    <section>
+        <div class="container">
+            <p class="all-products">Products</p>
+            <div class="d-flex">
+                <div class="mr-auto">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
                 </div>
-            {% endfor %}
+                <div class="ml-auto">
+                    <div>
+                        <input type="text">
+                        <button type="submit" class="btn btn-primary btn-sm">Search</button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!------------- Book-list section ------------------->
+    <section id="book-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    {% if books %}
+                      {% for book in books %}
+                            <div class="book-animated text-center">
+                            <img src="{% static book.get_image_path %}" class="img-fluid">
+                            <a href="{% url 'detail' %}">
+                            <div class="overlay d-flex flex-column">
+                                <h2 class="font-weight-bold">BOOK</h2>
+                                <p>{{book.book_name}},{{book.author}},{{book.publisher}}</p>
+                                <div class="d-flex flex-row share-group">
+                                <i class="fa fa-facebook-square fa-lg flex-grow-1"></i>
+                                <i class="fa fa-instagram fa-lg flex-grow-2"></i>
+                                <i class="fa fa-github fa-lg flex-grow-1"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="aler alert-warning">
+                            <p>
+                                No books
+                            </p>
+                        </div>
 
-        {% else %}
-           <div class="aler alert-warning">
-            <p>
-                No books
-            </p>
-           </div>
+                    {% endif %}
+                </div>   
+            </div>        
+        </div>
+    </section>
+    <!------------- Footer section ------------------->
+    <section id="footer">
+        <div class="container-fluid container-spacing text-center">
+            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
+            <p>Term of Service | Privacy</p>
+        </div>
+    </section>
+</body>
 
-        {% endif %}
-            
-
-    </div>
-</div>
-
-{% endblock %} 
-
-{% block js_files %} 
-    <script src="{% static 'books/script.js' %}"></script>
-{% endblock %} 
+</html>

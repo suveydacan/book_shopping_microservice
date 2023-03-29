@@ -1,0 +1,68 @@
+/*------------- Book detail section ------------------*/
+#book-detail
+{
+	margin-top: 60px;
+}
+.book-style
+{
+	box-shadow: 5px -5px 8px #888888;
+	border-radius: 3%;
+}
+.author
+{
+	font-weight: 900;
+	font-size: 40px;
+}
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   position: absolute;
+   content: "\2605";
+   color: gold;
+}
+.price
+{	
+	margin-top: 20px;
+	align-items: center;
+	border-bottom: 1px solid gray;
+}
+.sale-price
+{
+	font-weight: 900;
+	font-size: 40px;
+}
+.origin-price
+{	
+	margin-left: 20px;
+	text-decoration: line-through;
+}
+.full-description
+{
+	margin-top: 20px;
+	border-bottom: 1px solid gray;
+}
+.full-description .condition
+{
+	margin-top: 10px;
+}
+.full-description .condition span
+{
+	color: green;
+}
+.add-button
+{
+	margin-top: 20px;
+}
+.more-details
+{
+	margin-top: 20px;
+}
