@@ -1,0 +1,34 @@
+/* Cart page styles */
+
+.container {
+    margin-top: 50px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  table {
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  th, td {
+    text-align: center;
+  }
+  
+  th {
+    font-size: 1.2rem;
+  }
+  
+  td {
+    font-size: 1.1rem;
+  }
+  
+  .btn-primary {
+    margin-top: 30px;
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
