@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('account.urls')), #link sonuna  account altındaki html sayfaları gelecek
     path('', include('books.urls')),
     path('', include('orders.urls')),
+    path('', include('cart.urls')),
 ] 
