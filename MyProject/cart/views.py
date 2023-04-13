@@ -1,7 +1,8 @@
+from pyexpat.errors import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from books.models import Book
-from .models import Cart, CartItem
+from .models import Cart, CartItem, Favorite
 
 
 # Create your views here.
@@ -40,3 +41,22 @@ def remove_from_cart(request, item_id):
     else:
         cart_item.delete()
     return redirect('view_cart')
+
+@login_required
+def add_to_favorites(request, book_id):
+    book = get_object_or_404(Book, pk=book_id)
+    favorite, created = Favorite.objects.get_or_create(
+        user=request.user,
+        book=book,
+    )
+    if created:
+        messages.success(request, 'Kitap favorilere eklendi!')
+    else:
+        messages.warning(request, 'Kitap zaten favorilerinizde!')
+    return redirect('book_detail', pk=book.pk)
+
+@login_required
+def view_favorites(request):
+    favorites = Favorite.objects.filter(user=request.user)
+    context = {'favorites': favorites}
+    return render(request, 'favorites/view_favorites.html', context)

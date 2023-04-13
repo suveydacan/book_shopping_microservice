@@ -10,6 +10,3 @@ def product_pages(request):
     }
 
     return render(request ,"books/product.html", context)
-
-
-   
