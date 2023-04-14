@@ -7,4 +7,5 @@ urlpatterns = [
     path("logout", views.logout_request, name="logout"),
     path("index", views.index, name="index"),
     path("", views.index, name="index"),
+    path("profile", views.profile, name="profile"),
 ]

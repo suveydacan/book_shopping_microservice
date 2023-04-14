@@ -82,7 +82,7 @@
                       {% for book in books %}
                             <div class="book-animated text-center">
                             <img src="{% static book.get_image_path %}" class="img-fluid">
-                            <a href="{% url 'detail' %}">
+                            <a href="{% url 'detail' book.id %}">
                             <div class="overlay d-flex flex-column">
                                 <h2 class="font-weight-bold">BOOK</h2>
                                 <p>{{book.book_name}},{{book.author}},{{book.publisher}}</p>

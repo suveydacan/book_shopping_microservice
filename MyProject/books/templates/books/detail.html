@@ -55,34 +55,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                	<img src="images/book-2 trial.jpg" class="img-fluid book-style">
+                	<img src="{% static book.get_image_path %}" class="img-fluid book-style">
                 </div>
                  <div class="col-sm-6">
-                	<p class="author">MATTIS NIBH</p>
-                    <div class="rating">
+                	<p class="author">{{book.book_name}}</p>
+                    <!-- <div class="rating">
                         <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                        </div>
+                        </div> -->
                 	<div class="d-flex flex-row price">
-                		<p class="sale-price">$175</p>
-                		<p class="origin-price">$208</p>
+                		<p class="sale-price">{{book.price}} ₺</p>
+                		<!-- <p class="origin-price">$208</p> -->
                 	</div>
                 	<div class="full-description">
-                		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ipsum risus, tristique in viverra vitae, ullamcorper id quam. Integer lectus purus, vehicula id odio eget, pharetra aliquet ipsum. Mauris vehicula mauris mauris. Mauris lacus ex, ultricies sit amet eros convallis, rutrum venenatis quam. Mauris eu laoreet justo. Sed consectetur vehicula justo, ac commodo metus pharetra vel. Nullam in nulla ac lorem elementum pretium vel eget leo. Suspendisse volutpat massa non dolor pharetra scelerisque. Aenean id sagittis odio, eu ornare sapien.</p>
-                		<p class="condition">Availability: <span>In Stock</span></p>
+                		<p>{{book.publisher}}</p>
+                		<p class="condition">Availability: <span>{{book.stocks}}</span></p>
                 	</div>
-                    <form action="shopping-cart.html">
+                    <form action="{% url 'shopping-cart' %}">
                         <div class="d-flex flex-row add-button">
                         <button class="btn btn-dark btn-lg flex-grow-1" href="{% url 'shopping-cart' %}">Add to cart</button>
                     <button class="btn btn-light btn-lg flex-grow-2">Wish list</button>
                     </div>
                     </form>
                 	<div class="more-details">
-            			<p class="font-weight-bold">Categories:<span class="font-weight-normal">Adventure, Biographic, Children</span></p>
-            			<p class="d-flex flex-row font-weight-bold">Share: <span>
+            			<p class="font-weight-bold">Categories:<span class="font-weight-normal">{{book.category}}</span></p>
+            			<!-- <p class="d-flex flex-row font-weight-bold">Share: <span>
             				<i class="fa fa-facebook-square"></i>
                             <i class="fa fa-instagram"></i>
                             <i class="fa fa-github"></i>
-            			</span> </p>
+            			</span> </p> -->
                 	</div>
                 </div>
             </div>
