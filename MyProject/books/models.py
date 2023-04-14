@@ -1,4 +1,6 @@
+from pyexpat.errors import messages
 from django.db import models
+from django.shortcuts import redirect
 
 # Create your models here.
 
@@ -20,6 +22,3 @@ class Book(models.Model):
     
     def get_image_path(self):
         return '/books/img/'+ self.image  #img ile resim uzantısını birleştirir.
-
-    
-    

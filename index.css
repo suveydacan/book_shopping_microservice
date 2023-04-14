@@ -1,0 +1,102 @@
+* 
+{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+
+}
+/*-------------------Header section -------*/
+.navbar-brand 
+{
+  font-size: 64px !important;
+  margin: 0 40px;
+  color: #353535 !important;
+  font-family: 'Roboto Slab', serif;
+}
+.navbar-brand span
+{
+  color: #ffa300 ;
+  font-family: 'Roboto Slab', serif;
+}
+.navbar-nav 
+{
+  margin: 0 40px;
+  align-items: center;
+}
+.navbar-nav li 
+{
+  padding: 0 10px;
+}
+.navbar-nav li a 
+{ 
+  color: #ffffff !important;
+  font-size: 20px;
+  font-weight: 900;
+  float: right;
+  text-align: left;
+}
+.navbar-nav li img 
+{
+  float: right;
+}
+.fa-bars 
+{
+  color : #353535;
+  font-size: 30px !important;
+}
+.navbar-toggler 
+{ 
+  outline: none !important; /* loại bỏ đường viền xanh */
+}
+
+
+/*-------------------banner section -------*/
+.container-fluid
+{
+	position: relative;
+}
+.container-spacing
+{
+	margin-top: 100px;
+}
+.button-spacing
+{
+	position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*---------- Book-preview section ---------------*/
+.book-title
+{
+  margin: 20px 0;
+}
+.description
+{
+	color: gray;
+	margin: 0 20%;
+}
+/*---------- State section ---------------*/
+.library-title:before
+{
+    content: '';
+    background: #20c997;
+    height: 2px;
+    width: 500px;
+    margin: -20px auto 0;
+    display: block;
+    transform: translateY(63px);
+}
+.state-description
+{
+	margin: 40px 5% 20px 5%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
