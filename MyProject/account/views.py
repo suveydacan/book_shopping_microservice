@@ -7,9 +7,6 @@ from django.contrib.auth.models import User
 def index(request):
     return render(request, "account/index.html")
 
-def profile(request):
-    return render(request, "account/profile.html")
-
 def login_request(request):
     if request.method == "POST":
         email = request.POST.get("email")

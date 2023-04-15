@@ -1,61 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
+{% block content %}
 
-<head>
-    <title></title>
-    {% block css_files %}
-
-    <link rel="stylesheet" type="text/css" href="{% static 'account/css/index.css' %}">
-
-    {% endblock %}
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <!------------- Header section ------------------->
-      <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="{% url 'index' %}">Thot<span>'s</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Giriş Yap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Kayıt Ol</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
-                    </li>
-                    <li class="nav-item">
-                         <a href="#">  <!-- #shopping kart html gelecek -->
-                        <img src="images/shopping-cart.png"></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
     <!------------- Banner section ------------------->
     <section id="banner">
         <div class="container-fluid">
-            <img src="images/background-1.JPG" class="mx-auto d-block img-fluid">
-             <a href="{% url 'product' %}"><button type="button" class="btn btn-dark btn-lg button-spacing">Get Started</button></a> <!-- product html gelecek -->
+            <img src="#" class="mx-auto d-block img-fluid">
+             <a href="{% url 'books:product' %}"><button type="button" class="btn btn-dark btn-lg button-spacing">Get Started</button></a> <!-- product html gelecek -->
         </div>
     </section>
     <!------------- Book-preview section ------------------->
@@ -96,13 +46,4 @@
             <button type="button" class="btn btn-outline-primary btn-lg">Get Started</button>
         </div>
     </section>
-    <!------------- Footer section ------------------->
-    <section id="footer">
-        <div class="container-fluid container-spacing text-center">
-            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
-            <p>Term of Service | Privacy</p>
-        </div>
-    </section>
-</body>
-
-</html>
+{% endblock %}

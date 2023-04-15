@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!------------- Shopping cart section ------------>
+    <section id="shopping-cart">
+    	<div class="container">
+    		<h1 class="text-center shopping-cart-title">SEPET</h1>
+    		<div class="row">
+                {% for item in cart_items %}
+                    <div class="col-md-8">
+                        <div class="d-flex common-form">
+                            <div class="small-image">
+                                <img src="{% static book.get_image_path %}" class="img-fluid">
+                            </div>
+                        <div class="book-info">
+                            <p class="font-weight-bold book-name">{{item.book.book_name}} </p>
+                            <p class="book-info-detail">{{item.book.author}}</p>
+                            <p class="book-info-detail">{{item.book.publisher}}</p>
+                        </div>
+                        <div class="quantity ml-auto">
+                            <div class="d-flex">
+                                <p class="price">{{item.book.price}}</p>
+                                <select class="custom-select custom-select-sm">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <i class="fa fa-times ml-auto"></i>
+                        </div>  
+                    </div>
+                    {% endfor %} 
+    			<div class="col-md-4 common-form">
+    				<div class="total-bill">
+    					<p class="summary-title">TUTAR</p>
+    					<p class="d-flex">Ürün Tutarı<span class="ml-auto font-weight-bold">{{total_price}}</span></p>
+    					<p class="d-flex">Kargo Ücreti<span class="ml-auto font-weight-bold">$12.5</span></p>
+   					</div>
+   					<div>
+   						<p class="d-flex">Toplam Tutar<span class="ml-auto font-weight-bolder">$12.5</span></p>
+   					</div>
+                        <button type="button" href="{% url 'orders:checkout' %}" class="btn btn-dark btn-block">Sipariş Ver</button>		
+    			</div>
+    		</div>
+    	</div>
+    </section>
+{% endblock %}
