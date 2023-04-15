@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 # Create your models here.
 
 class Book(models.Model):
+    title=models.CharField(max_length=200)
     book_name=models.CharField(max_length=50)
     author=models.CharField(max_length=50)
     publisher=models.CharField(max_length=50)
@@ -14,6 +15,12 @@ class Book(models.Model):
     stocks=models.IntegerField(default=0)
     image=models.CharField(default='image1.jpg',max_length=50)
     
+   
+    
+    def save(self,*args,**kwargs):
+        self.title = '{}{}{}{}'.format(self.book_name,self.author,self.publisher,self.category)
+        super(Book,self).save(*args,**kwargs)
+
 
    
 
