@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -61,8 +62,7 @@ ROOT_URLCONF = 'MyProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-             BASE_DIR / "templates"
+        'DIRS': ['C:/Users/suvey/Desktop/book_shopping_microservice/MyProject/templates/'
 
         ],
         
@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'mydatabase',  
         'USER': 'root',  
-        'PASSWORD': 'Easm2934!',  
+        'PASSWORD': 'database2022',  
         'HOST': '127.0.0.1',  
         'PORT': '3306',  
         'OPTIONS': {  
@@ -132,9 +132,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIR =[
-    BASE_DIR / "static"
+STATIC_URL = '/static/'
+STATICFILES_DIRS =[
+    BASE_DIR / "static",
 ]
 
 # Default primary key field type

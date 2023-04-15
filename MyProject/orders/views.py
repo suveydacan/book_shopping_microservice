@@ -12,5 +12,3 @@ def order_details(request):
 def orders(request):
     return render(request, "orders/orders.html")
 
-def shopping_cart(request):
-    return render(request, "orders/shopping-cart.html")

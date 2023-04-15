@@ -1,58 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-    {% block css_files %}
+{% extends 'base.html' %}
+{% block content %}
 
-	<link rel="stylesheet" type="text/css" href="{% static 'account/css/index.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'account/css/login.css' %}">
-
-    {% endblock %}
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
-
-</head>
-<body>
-	  <!------------- Header section ------------------->
-      <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="#">Coders.<span>Tokyo</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
-                    </li>
-                    <li class="nav-item">
-                        <img src="images/shopping-cart.png">
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </section>
     <!------------- Login section ------------------->
-    {% block content %} 
             
         <section>
             <div class="container">
-            <form action="{% url 'index' %}" method="POST">
+            <form action="{% url 'account:index' %}" method="POST">
                 {% csrf_token %}
                 {% if error %}
                 <div class="alert alert-danger">
@@ -82,14 +35,3 @@
             </div>
         </section>
     {% endblock %}
-
-     <!------------- Footer section ------------------->
-    <section id="footer">
-        <div class="container-fluid container-spacing text-center">
-            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
-            <p>Term of Service | Privacy</p>
-        </div>
-    </section>
-   
-</body>
-</html>
