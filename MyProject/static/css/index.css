@@ -3,6 +3,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
+
 }
 /*-------------------Header section -------*/
 .navbar-brand 
@@ -14,7 +15,7 @@
 }
 .navbar-brand span
 {
-  color: #d8a600 ;
+  color: #ffa300 ;
   font-family: 'Roboto Slab', serif;
 }
 .navbar-nav 
@@ -28,7 +29,7 @@
 }
 .navbar-nav li a 
 { 
-  color: #000 !important;
+  color: #ffffff !important;
   font-size: 20px;
   font-weight: 900;
   float: right;
@@ -40,7 +41,7 @@
 }
 .fa-bars 
 {
-  color : #000;
+  color : #353535;
   font-size: 30px !important;
 }
 .navbar-toggler 
@@ -90,4 +91,12 @@
 .state-description
 {
 	margin: 40px 5% 20px 5%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }
