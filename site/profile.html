@@ -1,15 +1,15 @@
-{% load static %}
+<<<<<<< HEAD:MyProject/account/templates/account/profile.html
+{% extends 'base.html' %}
+{% block content %}
+
+=======
 <!DOCTYPE html>
 <html>
 
 <head>
     <title></title>
-
-    {% block css_files %}
-    <link rel="stylesheet" type="text/css" href="{% static 'account/css/index.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'account/css/profile.css' %}">
-    {% endblock %}
-
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="profile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -22,7 +22,7 @@
     <!------------- Header section ------------------->
     <section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="{% url 'index' %}">Coders.<span>Tokyo</span></a>
+            <a class="navbar-brand" href="index.html">Coders.<span>Tokyo</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
@@ -30,10 +30,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                        <a class="nav-link" href="#">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
+                        <a class="nav-link" href="#">PRODUCTS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CONTACT</a>
@@ -48,13 +48,18 @@
             </div>
         </nav>
     </section>
+>>>>>>> parent of 3084a1f (book detail yapıldı):site/profile.html
     <!------------- Shopping cart section ------------>
     <section id="shopping-cart">
         <div class="container">
             <h1 class="text-center shopping-cart-title">Hesabım</h1>
             <div class="row" style="margin-bottom: 30px; margin-top: 50px; justify-content: center;">
                 <div class="col-md-6">
-                    <form action="{% url 'order_details' %}">
+<<<<<<< HEAD:MyProject/account/templates/account/profile.html
+                    <form action="{% url 'orders:order_details' %}">
+=======
+                    <form action="order_details.html">
+>>>>>>> parent of 3084a1f (book detail yapıldı):site/profile.html
 
                         <button class="block">Bilgilerim</button>
 
@@ -63,7 +68,11 @@
             </div>
             <div class="row" style="margin-bottom: 30px;  justify-content: center; ">
                 <div class="col-md-6">
-                    <form action="{% url 'orders' %}">
+<<<<<<< HEAD:MyProject/account/templates/account/profile.html
+                    <form action="{% url 'orders:orders' %}">
+=======
+                    <form action="orders.html">
+>>>>>>> parent of 3084a1f (book detail yapıldı):site/profile.html
 
                         <button class="block">Siparişlerim</button>
 
@@ -73,7 +82,11 @@
 
             <div class="row" style="margin-bottom: 50px;  justify-content: center;">
                 <div class="col-md-6">
-                    <form action="{% url 'order_details' %}">
+<<<<<<< HEAD:MyProject/account/templates/account/profile.html
+                    <form action="{% url 'orders:order_details' %}">
+=======
+                    <form action="order_details.html">
+>>>>>>> parent of 3084a1f (book detail yapıldı):site/profile.html
 
                         <button class="block">Taleplerim</button>
 
@@ -89,13 +102,4 @@
 
         </div>
     </section>
-    <!------------- Footer section ------------------->
-    <section id="footer">
-        <div class="container-fluid container-spacing text-center">
-            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
-            <p>Term of Service | Privacy</p>
-        </div>
-    </section>
-</body>
-
-</html>
+{% endblock %}

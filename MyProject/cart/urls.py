@@ -7,10 +7,9 @@ app_name = 'cart'
 
 
 urlpatterns = [
-    path('cart_detail', views.cart_detail, name='cart_detail'),
-    path('view_cart', views.view_cart, name='view_cart'),
-    path('add_to_cart', views.add_to_cart, name='add_to_cart'),
-    path('remove_from_cart', views.remove_from_cart, name='remove_from_cart'),
+      path('shopping-cart', views.view_cart, name='shopping-cart'),
+      path('shopping-cart/<int:book_id>/',views.add_to_cart,name='shopping-cart'),
+      path('favs', views.view_favorites, name='favs'),
     
 ]
 #path('add/<int:product_id>/', views.cart_add, name='cart_add'),

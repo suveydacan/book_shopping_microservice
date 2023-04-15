@@ -1,118 +1,137 @@
-{% load static %}
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+          }
+        .card-header {
+            background-color: #ffa300;
+            color: #fff;
+        }
 
-<!DOCTYPE html>
-<html>
+        .card-body ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
-<head>
-    <title></title>
+        .card-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            text-align: right;
+            font-weight: bold;
 
-    {% block css_files %}
+        }
 
-    <link rel="stylesheet" type="text/css" href="{% static 'orders/css/index.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'orders/css/shopping-cart.css' %}">
+        .card {
+            margin-top: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            border: none;
+        }
 
-    {% endblock %}
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
-</head>
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
 
-<body>
-    <!------------- Header section ------------------->
-    <section id="nav-bar">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <a class="navbar-brand" href="{% url 'index' %}">Coders.<span>Tokyo</span></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">PRODUCTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">BLOG</a>
-                    </li>
-                    <li class="nav-item">
-                        <img src="images/shopping-cart.png">
-                    </li>
-                </ul>
+        .card-text {
+            margin-bottom: 0;
+        }
+
+        .row {
+            margin-bottom: 10px;
+        }
+
+        h6 {
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Siparişiniz #123456</h4>
             </div>
-        </nav>
-    </section>
-    <!------------- Shopping cart section ------------>
-    <section id="shopping-cart">
-        <div class="container">
-            <h1 class="text-center shopping-cart-title">Sipariş Detayları</h1>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="d-flex common-form">
-
-                        <div class="book-info">
-                            <p class="font-weight-bold book-name" style="font-size: 18px;"> Sipariş Bilgileri<span
-                                    class="book-info-detail"></span></p>
-                            <hr class="mb-4">
-                            <p class="book-info-detail">Sipariş No: </p>
-                            <p class="book-info-detail">Ödeme Yöntemi: </p>
-                            <p class="book-info-detail">Kargo Şirketi: </p>
-                            <p class="book-info-detail">Sipariş Durumu: </p>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="col-md-6 common-form">
-                    <div class="total-bill">
-                        <p class="summary-title">TUTAR</p>
-                        <p class="d-flex">Ürün Tutarı<span class="ml-auto font-weight-bold">$668</span></p>
-                        <p class="d-flex">Kargo Ücreti<span class="ml-auto font-weight-bold">$12.5</span></p>
-                    </div>
-                    <div>
-                        <p class="d-flex">Toplam Tutar<span class="ml-auto font-weight-bolder">$12.5</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex common-form">
-                        <h4 class="mb-3" style="text-align: center;"> Satın Alınan Ürünler</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="d-flex common-form">
-                        <div class="book-info">
-                            <p class="font-weight-bold book-name" style="font-size: 18px;"> Kitap Adı <span
-                                    class="book-info-detail"></span></p>
-                            <hr class="mb-4">
-                            <p class="book-info-detail">Tür: </p>
-                            <p class="book-info-detail">Yazar: </p>
-                            <p class="book-info-detail">Fiyat: </p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Sipariş Ayrıntıları</h5>
+                                <ul class="list-unstyled">
+                                    <li><span class="font-weight-bold mr-2">Sipariş Tarihi:</span> 12/04/2023</li>
+                                    <li><span class="font-weight-bold mr-2">Sipariş Durumu:</span> Kargoya Verildi</li>
+                                    <li><span class="font-weight-bold mr-2">Kargo Şirketi:</span> Aras Kargo</li>                                    
+                                    <li><span class="font-weight-bold mr-2">Ödeme Yöntemi:</span> Kredi Kartı</li>
+                                    <li><span class="font-weight-bold mr-2">Teslimat Adresi:</span> 123 Main St, New York, NY 10001</li>
+                                    </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="path/to/product/image" alt="Product Image" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h6>Ürün Adı</h6>
+                                        <p>Açıklama</p>
+                                        <p>Fiyat: $9.99</p>
+                                        <p>Adet: 1</p>
+                                        <hr>
+                                        <h6>Toplam Fiyat: $9.99</h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="path/to/product/image" alt="Product Image" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <h6>Ürün Adı</h6>
+                                        <p>Açıklama</p>
+                                        <p>Fiyat: $19.99</p>
+                                        <p>Adet: 2</p>
+                                        <hr>
+                                        <h6>Toplam Fiyat: $39.98</h6>
+                                    </div>
+                                </div>
+                                <hr>
+                                <h5 class="card-title">Toplam Fiyat: $49.97</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button type="button" class="btn btn-primary mr-2" style="background-color: #353535;"><i class="fas fa-print mr-2" ></i>FaturaYazdır</button>
+                <button type="button" class="btn btn-success" style="background-color: #ffa300;">Sipariş Takibi</button>
             </div>
         </div>
-    </section>
-    <!------------- Footer section ------------------->
-    <section id="footer">
-        <div class="container-fluid container-spacing text-center">
-            <p>Copyright 2020 Coders.Tokyo. All rights reserved.</p>
-            <p>Term of Service | Privacy</p>
-        </div>
-    </section>
-</body>
-
-</html>
+    </div>
+{% endblock %}
