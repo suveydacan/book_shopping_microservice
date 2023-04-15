@@ -52,27 +52,15 @@
         </nav>
     </section>
     <!------------- Search section ------------------->
-    <section>
-        <div class="container">
-            <p class="all-products">Products</p>
-            <div class="d-flex">
-                <div class="mr-auto">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </div>
-                <div class="ml-auto">
-                    <div>
-                        <input type="text">
-                        <button type="submit" class="btn btn-primary btn-sm">Search</button></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="header-search">
+        <form action="/search/" method="post">
+            {% csrf_token %} 
+            <input name="query" class="input search-input" type="text" placeholder="Enter your keyword">
+
+
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
     <!------------- Book-list section ------------------->
     <section id="book-list">
         <div class="container">

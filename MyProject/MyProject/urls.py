@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-
+from books import views
 
 
 urlpatterns = [
@@ -26,4 +26,5 @@ urlpatterns = [
     path('', include('books.urls')),
     path('', include('orders.urls')),
     path('', include('cart.urls')),
+    path('search/',views.product_search,name='product_search'),
 ] 
