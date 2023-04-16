@@ -10,7 +10,7 @@ class CartItem(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.quantity} of {self.book.title} added by {self.user.username}"
+        return f"{self.quantity} of {self.book.book_name} added by {self.user.username}"
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)

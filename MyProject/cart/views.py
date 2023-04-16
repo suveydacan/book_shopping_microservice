@@ -8,7 +8,7 @@ from .models import Cart, CartItem, Favorite
 
 # Create your views here.
 
-@login_required
+@login_required(login_url='/login/')
 def cart_detail(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_items = cart.cartitem_set.all()

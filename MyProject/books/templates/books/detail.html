@@ -25,9 +25,13 @@
                         <div class="d-flex flex-row add-button">
                         <button class="btn btn-dark btn-lg flex-grow-1" href="{% url 'cart:shopping-cart' book.id %}">Sepete Ekle</button>
                     {% else %} 
-                         <p>Please <a href="{% url 'account:login' %}?next={{ request.path }}">log in</a> to add items to your cart.</p>
+                         <p>Lütfen<a href="{% url 'account:login' %}?next={{ request.path }}"> giriş yapınız</a> sepete ürün eklemek için.</p>
                     {% endif %}
-                    <button class="btn btn-light btn-lg flex-grow-2">Favoriler</button>
+                    {% if request.user.is_authenticated %}
+                    <button class="btn btn-light btn-lg flex-grow-2" href="{% url 'cart:favs' book.id %}">Favoriler</button>
+                    {% else %} 
+                         <p>Lütfen <a href="{% url 'account:login' %}?next={{ request.path }}">giriş yapınız</a> favorilere ürün eklemek için.</p>
+                    {% endif %}
                     </div>
                     </form>
                 	<div class="more-details">

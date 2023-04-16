@@ -1,24 +1,25 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
     return render(request, "account/index.html")
 
+@login_required
 def profile(request):
     return render(request, "account/profile.html")
 
 def login_request(request):
     if request.method == "POST":
-        email = request.POST.get("email")
+        username = request.POST.get("username")
         password = request.POST.get("password")
 
-        user= authenticate(request, email = email, password = password)
+        user= authenticate(request, username = username, password = password)
         if user is not None:
-            login(request, User)
-            return redirect("index")
+            login(request, user)
+            return redirect("account:profile")
         else: 
             return render(request, "account/login.html",{
             "error": "email ya da password yanlış"
