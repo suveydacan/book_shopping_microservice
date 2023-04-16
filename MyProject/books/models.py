@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 # Create your models here.
 
 class Book(models.Model):
-    title=models.CharField(max_length=200)
+    title=models.CharField(max_length=200, default="yazar")
     book_name=models.CharField(max_length=50)
     author=models.CharField(max_length=50)
     publisher=models.CharField(max_length=50)
@@ -28,4 +28,5 @@ class Book(models.Model):
         return self.book_name
     
     def get_image_path(self):
-        return '/books/img/'+ self.image  #img ile resim uzantısını birleştirir.
+        return '/img/'+ self.image  #img ile resim uzantısını birleştirir.
+    
