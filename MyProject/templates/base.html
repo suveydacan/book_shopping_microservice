@@ -50,6 +50,9 @@
                     {% if user.is_authenticated %}
                         <a href="{% url 'account:profile' %}">Profilim</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:logout' %}">Çıkış Yap</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account:login' %}">Giriş Yap</a>
