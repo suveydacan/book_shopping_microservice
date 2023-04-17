@@ -27,4 +27,6 @@ urlpatterns = [
     path('', include('orders.urls')),
     path('', include('cart.urls')),
     path('search/',views.product_search,name='product_search'),
+    path('books/addcomment/<int:id>', views.addcomment, name='addcomment'),
+    #path('cart/shopping_cart', views.shopping_cart, name='shopping_cart'),
 ] 

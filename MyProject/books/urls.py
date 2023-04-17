@@ -6,6 +6,7 @@ app_name = 'books'
 urlpatterns = [
     path('product', views.product_pages, name='product'),
     path('detail/<int:book_id>/',views.book_detail,name='detail'),
+    #path('addcomment/<int:id>', views.addcomment, name='addcomment'),
     # path('<int:book_id>',views.detail,name='detail'),
     # path('search',views.search,name='search'),
 ]

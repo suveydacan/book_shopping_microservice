@@ -62,7 +62,7 @@ ROOT_URLCONF = 'MyProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/suvey/Desktop/book_shopping_microservice/MyProject/templates/'
+        'DIRS': ['C:/Users/zeyne/OneDrive/Masaüstü/book_shopping_microservice/MyProject/templates/'
 
         ],
         
@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'mydatabase',  
         'USER': 'root',  
-        'PASSWORD': 'Easm2934!',  
+        'PASSWORD': 'database2022',  
         'HOST': '127.0.0.1',  
         'PORT': '3306',  
         'OPTIONS': {  
