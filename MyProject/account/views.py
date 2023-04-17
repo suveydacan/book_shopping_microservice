@@ -1,5 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from books.models import Book
@@ -75,5 +76,7 @@ def register_request(request):
     return render(request ,"account/register.html") 
 
 def logout_request(request):
-    return redirect("home") #ana sayfaya donuyo bizde yok hata verir logout diyince
+    logout(request)
+    return HttpResponseRedirect('/')
+    #return redirect("home") #ana sayfaya donuyo bizde yok hata verir logout diyince
 # Create your views here.
