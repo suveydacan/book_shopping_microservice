@@ -2,10 +2,17 @@ from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from books.models import Book
 
 
 def index(request):
-    return render(request, "account/index.html")
+    books=Book.objects.all()  # db'deki objeleri almış oluyoruz.
+
+    context={
+        'books': books
+    }
+
+    return render(request ,"account/index.html", context)
 
 @login_required
 def profile(request):

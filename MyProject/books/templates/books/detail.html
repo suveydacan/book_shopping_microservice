@@ -21,19 +21,25 @@
                 		<p class="condition">Stok Miktarı: <span>{{book.stocks}}</span></p>
                     </div>
                     {% if request.user.is_authenticated %}
-                    <form action="{% url 'cart:shopping-cart' book.id %}" method="POST">
+                    <form action="{% url 'cart:add_to_cart' book.id %}" method="POST">
+                        {% csrf_token %} 
                         <div class="d-flex flex-row add-button">
-                        <button class="btn btn-dark btn-lg flex-grow-1" href="{% url 'cart:shopping-cart' book.id %}">Sepete Ekle</button>
+                        <button class="btn btn-dark btn-lg flex-grow-1" href="{% url 'cart:add_to_cart' book.id %}">Sepete Ekle</button>
                     {% else %} 
                          <p>Lütfen<a href="{% url 'account:login' %}?next={{ request.path }}"> giriş yapınız</a> sepete ürün eklemek için.</p>
                     {% endif %}
+                    </form>
+
                     {% if request.user.is_authenticated %}
+                    <form action="{% url 'cart:favs' book.id %}" method="POST">
+                        {% csrf_token %}
                     <button class="btn btn-light btn-lg flex-grow-2" href="{% url 'cart:favs' book.id %}">Favoriler</button>
                     {% else %} 
                          <p>Lütfen <a href="{% url 'account:login' %}?next={{ request.path }}">giriş yapınız</a> favorilere ürün eklemek için.</p>
                     {% endif %}
-                    </div>
                     </form>
+                    </div>
+                   
                 	<div class="more-details">
             			<p class="font-weight-bold">Kategori:<span class="font-weight-normal">{{book.category}}</span></p>
             			<!-- <p class="d-flex flex-row font-weight-bold">Share: <span>

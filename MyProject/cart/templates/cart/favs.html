@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     <!------------- Shopping cart section ------------>
     <section id="shopping-cart">
@@ -10,19 +11,20 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
+                        {% for favs in favorites %}
                             <div class="card">
 
                                 <div class="card-body">
 
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <img src="images/book-2.jpg" class="img-fluid">
+                                            <img src="{% static favs.book.get_image_path %}" class="img-fluid">
                                         </div>
                                         <div class="col-md-9">
-                                            <h5>Ürün Adı</h5>
+                                            <h5>{{favs.book.book_name}}</h5>
                                             <hr>
-                                            <p>Yazar</p>
-                                            <p>Fiyat: $9.99</p>
+                                            <p>{{favs.book.author}}</p>
+                                            <p>Fiyat: {{favs.book.price}}</p>
 
                                         </div>
                                     </div>
@@ -45,6 +47,7 @@
 
                                 </div>
                             </div>
+                        {% endfor %} 
 
                         </div>
                     </div>

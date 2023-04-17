@@ -24,3 +24,4 @@ class Favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     book = models.ForeignKey(Book, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
+

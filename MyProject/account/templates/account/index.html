@@ -1,49 +1,26 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
     <!------------- Banner section ------------------->
     <section id="banner">
         <div class="container-fluid">
             <img src="#" class="mx-auto d-block img-fluid">
-             <a href="{% url 'books:product' %}"><button type="button" class="btn btn-dark btn-lg button-spacing">Get Started</button></a> <!-- product html gelecek -->
+             <a href="{% url 'books:product' %}"><button type="button" class="btn btn-dark btn-lg button-spacing">Alışverişe Başla</button></a> <!-- product html gelecek -->
         </div>
     </section>
     <!------------- Book-preview section ------------------->
     <section id="book-preview">
+        {% for book in books|slice:":2" %}
         <div class="container-fluid container-spacing">
             <div class="row">
-                <div class="col-sm-4 text-center">
-                    <img src="images/book-1.jpg" class="img-fluid">
-                    <h2 class="book-title">NHÀ GIẢ KIM</h2>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="images/book-2.jpg" class="img-fluid">
-                    <h2 class="book-title">ĐẮC NHÂN TÂM</h2>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img src="images/book-3.jpg" class="img-fluid">
-                    <h2 class="book-title">LƯỢC SỬ LOÀI NGƯỜI</h2>
-                    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.</p>
+                <div class="col-sm-12 text-center">
+                    <img src="{% static book.get_image_path %}" style="width:200px ;" class="img-fluid">
+                    <h2 class="book-title">{{book.book_name}}</h2>
+                    <p class="description">{{book.author}}</p>
                 </div>
             </div>
         </div>
-    </section>
-    <!------------- State section ------------------->
-    <section id="state">
-        <div class="container-fluid container-spacing text-center">
-            <h1 class="library-title">MAGNILOQUENT STATE</h1>
-            <p class="state-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.</p>
-            <img src="images/library.jpg" class="img-fluid">
-        </div>
-    </section>
-    <!------------- Question section ------------------->
-    <section id="question">
-        <div class="container-fluid container-spacing text-center">
-            <h1 class="library-title">HEARD ENOUGH?</h1>
-            <p class="state-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec eros at odio fringilla suscipit ac et ligula. Morbi bibendum erat ac porta facilisis.</p>
-            <button type="button" class="btn btn-outline-primary btn-lg">Get Started</button>
-        </div>
+        {% endfor %}
     </section>
 {% endblock %}
