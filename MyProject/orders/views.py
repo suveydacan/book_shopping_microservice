@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -12,3 +12,20 @@ def order_detail(request):
 def orders(request):
     return render(request, "orders/orders.html")
 
+def create_order(request):
+    cart = Cart.objects.get(user=request.user)
+    order = Order.objects.create(user=request.user)
+    order_items = []
+
+    for item in cart.items.all():
+        order_items.append(item)
+        item.cart = None
+        item.order = order
+        item.save()
+
+    order.items.set(order_items)
+    order.save()
+    cart.total = 0
+    cart.save()
+
+    return redirect('order_confirmation', order_id=order.id)
